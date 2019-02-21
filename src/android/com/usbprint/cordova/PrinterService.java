@@ -375,6 +375,13 @@ public class PrinterService extends CordovaPlugin {
             //cut paper
             byte[] GS_V_m_n = new byte[] {0x1d, 0x56, 0x42, 0x00 };
             wfComm.sndByte(GS_V_m_n);
+            byte[] openCash = new byte[5];
+            openCash[0] = 27;
+            openCash[1] = 112;
+            openCash[2] = 0;
+            openCash[3] = 64;
+            openCash[4] = 80;
+            wfComm.sndByte(openCash);
         }
     }
 
