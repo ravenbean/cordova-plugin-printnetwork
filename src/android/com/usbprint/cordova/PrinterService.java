@@ -64,28 +64,28 @@ public class PrinterService extends CordovaPlugin {
     @SuppressLint("HandlerLeak") private final  Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            switch (msg.what) {
-            case WifiCommunication.WFPRINTER_CONNECTED:
-            	connFlag = 0;
+            // switch (msg.what) {
+            // case WifiCommunication.WFPRINTER_CONNECTED:
+            // 	connFlag = 0;
 
-            	break;
-            case WifiCommunication.WFPRINTER_DISCONNECTED:
+            // 	break;
+            // case WifiCommunication.WFPRINTER_DISCONNECTED:
 
-            	break;
-            case WifiCommunication.SEND_FAILED:
-            	connFlag = 0;
+            // 	break;
+            // case WifiCommunication.SEND_FAILED:
+            // 	connFlag = 0;
 
-            	break;
-            case WifiCommunication.WFPRINTER_CONNECTEDERR:
-            	connFlag = 0;
+            // 	break;
+            // case WifiCommunication.WFPRINTER_CONNECTEDERR:
+            // 	connFlag = 0;
 
-            	break;
-            case WFPRINTER_REVMSG:
+            // 	break;
+            // case WFPRINTER_REVMSG:
  
-                break;
-            default:
-                break;
-            }
+            //     break;
+            // default:
+            //     break;
+            // }
         }
     };
 
