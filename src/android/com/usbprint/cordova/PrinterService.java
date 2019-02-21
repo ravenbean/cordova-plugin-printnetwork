@@ -356,12 +356,12 @@ public class PrinterService extends CordovaPlugin {
     }
 
     private void printWifi(String msg, final CallbackContext callbackContext){
-        Socket sock = new Socket("172.22.84.188", 9100);
-        PrintWriter oStream = new PrintWriter(sock.getOutputStream());
-        oStream.println(msg);
-        oStream.println("\n\n\n");
-        oStream.close();
-        sock.close(); 
+        // Socket sock = new Socket("172.22.84.188", 9100);
+        // PrintWriter oStream = new PrintWriter(sock.getOutputStream());
+        // oStream.println(msg);
+        // oStream.println("\n\n\n");
+        // oStream.close();
+        // sock.close(); 
         Toast.makeText(cordova.getActivity().getApplicationContext(), "PREPARE TO CONNECT", Toast.LENGTH_SHORT)
                         .show();
         if(connFlag == 1){
