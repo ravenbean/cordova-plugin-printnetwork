@@ -2,7 +2,7 @@ module.exports = {
     print: function(printername, msg, successCallback, failureCallback) {
         cordova.exec(successCallback, failureCallback, "PrinterService", "print", [printername, msg]);
     },
-    printWifi: function(msg, successCallback, failureCallback) {
+    printWifi: function(msg, ipAddress, successCallback, failureCallback) {
         cordova.exec(successCallback, failureCallback, "PrinterService", "printWifi", [msg]);
     },
     connectNetworkPrinters: function(msg, successCallback, failureCallback) {
