@@ -200,7 +200,8 @@ public class PrinterService extends CordovaPlugin {
             return true;
         } else if (action.equals("printWifi")) {
             String msg = args.getString(0);
-            printWifi(msg, callbackContext);
+            String ipAddress = args.getString(1);
+            printWifi(msg, ipAddress, callbackContext);
             return true;
         } else if (action.equals("sendCommand")) {
             String printer_name = args.getString(0);
