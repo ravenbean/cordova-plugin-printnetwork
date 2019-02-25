@@ -355,34 +355,26 @@ public class PrinterService extends CordovaPlugin {
         }
     }
 
-    private void printWifi(String msg, final CallbackContext callbackContext){
-        // Socket sock = new Socket("172.22.84.188", 9100);
-        // PrintWriter oStream = new PrintWriter(sock.getOutputStream());
-        // oStream.println(msg);
-        // oStream.println("\n\n\n");
-        // oStream.close();
-        // sock.close(); 
+    private void printWifi(String msg, String ipAddress, final CallbackContext callbackContext){
         Toast.makeText(cordova.getActivity().getApplicationContext(), "PREPARE TO CONNECT", Toast.LENGTH_SHORT)
                         .show();
-        if(connFlag == 1){
-            Toast.makeText(cordova.getActivity().getApplicationContext(), "CONNECTED", Toast.LENGTH_SHORT)
-            .show();
-            if (msg.length() == 0) {
-                return;
-            }
-            
-            wfComm.sendMsg(msg, "GBK");
-            //cut paper
-            byte[] GS_V_m_n = new byte[] {0x1d, 0x56, 0x42, 0x00 };
-            wfComm.sndByte(GS_V_m_n);
-            byte[] openCash = new byte[5];
-            openCash[0] = 27;
-            openCash[1] = 112;
-            openCash[2] = 0;
-            openCash[3] = 64;
-            openCash[4] = 80;
-            wfComm.sndByte(openCash);
-        }
+        wfComm.initSocket(ipAddress, 9100);
+
+        Toast.makeText(cordova.getActivity().getApplicationContext(), "CONNECTED", Toast.LENGTH_SHORT)
+        .show();
+        wfComm.sendMsg(msg, "GBK");
+        //cut paper
+        byte[] GS_V_m_n = new byte[] {0x1d, 0x56, 0x42, 0x00 };
+        wfComm.sndByte(GS_V_m_n);
+        byte[] openCash = new byte[5];
+        openCash[0] = 27;
+        openCash[1] = 112;
+        openCash[2] = 0;
+        openCash[3] = 64;
+        openCash[4] = 80;
+        wfComm.sndByte(openCash);
+        Toast.makeText(cordova.getActivity().getApplicationContext(), "PRINTING", Toast.LENGTH_SHORT)
+        .show();
     }
 
     private synchronized void getPermission(UsbDevice dev, final CallbackContext callbackContext) {
